@@ -11,11 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-        jq -c '.[]' <<< '${{ toJSON('{"hoge":"hoge_string","bar":"bar_string"}') }}' | while read -r path; do
-          hoge=$(echo $path | jq -r '.hoge')
-          bar=$(echo $path | jq -r '.bar')
-          if [[ "${{ env.MY_ENV }}" =~ ^(dev|stg))$ ]]; then
-            bar="${{ inputs.env }}/${bar}"
-          fi
-          echo "hoge: $hoge, bar: $bar"
-        done
+          bar="baaaaaaaaa"
+            if [[ "${{ env.MY_ENV }}" =~ ^(dev|stg))$ ]]; then
+              bar="${{ env.MY_ENV }}/${bar}"
+            fi
+            echo "bar: $bar"
+          done
