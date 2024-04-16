@@ -9,7 +9,7 @@ env:
 jobs:
   my_job:
     - name: sample job
-    - run: |
+      run: |
         jq -c '.[]' <<< '${{ toJSON({"hoge":"hoge_string","bar":"bar_string"}) }}' | while read -r path; do
           hoge=$(echo $path | jq -r '.hoge')
           bar=$(echo $path | jq -r '.bar')
