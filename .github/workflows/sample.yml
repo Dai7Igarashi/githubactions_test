@@ -12,7 +12,7 @@ jobs:
     steps:
       - run: |
           bar="baaaaaaaaa"
-            if [[ "${{ env.MY_ENV }}" =~ ^(dev|stg))$ ]]; then
+            if [[ "${{ env.MY_ENV }}" =~ ^(dev|stg)$ ]]; then
               bar="${{ env.MY_ENV }}/${bar}"
             fi
             echo "bar: $bar"
