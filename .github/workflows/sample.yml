@@ -4,7 +4,7 @@ on:
   push:
 
 env:
-  MY_ENV: dev
+  MY_ENV: prd
 
 jobs:
   my_job:
@@ -12,8 +12,7 @@ jobs:
     steps:
       - run: |
           bar="baaaaaaaaa"
-            if [[ "${{ env.MY_ENV }}" =~ ^(dev|stg)$ ]]; then
-              bar="${{ env.MY_ENV }}/${bar}"
-            fi
-            echo "bar: $bar"
-          done
+          if [[ "${{ env.MY_ENV }}" =~ ^(dev|stg)$ ]]; then
+            bar="${{ env.MY_ENV }}/${bar}"
+          fi
+          echo "bar: $bar"
